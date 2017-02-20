@@ -19,6 +19,7 @@ class Form extends Component {
         this.setState({value: e.target.value});
     }
     handleSubmit(e) {
+        elements.push(this.state.value);
         this.setState({value: ''});
         e.preventDefault();
     }
