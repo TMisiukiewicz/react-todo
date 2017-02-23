@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+
 import './App.css';
 
 
@@ -8,9 +12,9 @@ var itemArray = [];
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <MuiThemeProvider className="App">
         <Form/>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
@@ -33,17 +37,15 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     itemArray.push(this.state.value);
     event.preventDefault();
-    console.log(itemArray);
     this.setState({value: ''});
   }
 
   render() {
     return (
       <div>
-      <form onSubmit={this.handleSubmit}>
+      <form className="Form" onSubmit={this.handleSubmit}>
         <TextInput value={this.state.value} handler={this.handleChange}/>
         <SubmitButton name="Add to list"/>
       </form>
@@ -54,11 +56,19 @@ class Form extends Component {
 }
 
 function TextInput(props) {
-  return <input type="text" value={props.value} onChange={props.handler}/>
+  return <TextField
+  floatingLabelFocusStyle={{color: '#80CBC4'}}
+  underlineFocusStyle={{borderColor: '#80CBC4'}}
+  fullWidth={true}
+  floatingLabelText={'What you have to do today?'}
+  rows={2}
+  style={{fontSize: 26}}
+  value={props.value}
+  onChange={props.handler}/>
 }
 
 function SubmitButton(props) {
-  return <input type="submit" value={props.name}/>;
+  return <FlatButton type="submit" backgroundColor={'#80CBC4'} hoverColor={'#26A69A'}>{props.name}</FlatButton>
 }
 
 function ItemsList() {
