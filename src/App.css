@@ -1,9 +1,30 @@
+body {
+  background: #ecf0f1;
+}
 .App {
   text-align: center;
 }
 
 .Form {
-  margin: 0 auto;
+  margin: 0 auto 25px auto;
   width: 40%;
   display: block;
+}
+
+.ListItems {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+.SingleCard {
+  margin-bottom: 20px;
+}
+
+.CardCheckbox {
+  padding: 30px 10px 10px 10px;
+  font-size: 24px;
+
+}
+.ImportantButton {
+  margin: 30px 10px 10px 10px;
 }
